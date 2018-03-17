@@ -1,0 +1,39 @@
+{
+  "name": "react-native-animate-loading-button",
+  "version": "0.0.1",
+  "description": "Animated load button for React Native",
+  "main": "src/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andcosta/react-native-animate-loading-button.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "react native",
+    "react-native",
+    "react-component",
+    "button",
+    "load",
+    "loading",
+    "animated",
+    "indicator",
+    "progress"
+  ],
+  "author": {
+    "name": "Anderson de Carvalho",
+    "email": "andcosta.dev@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0",
+    "prop-types": "^15.5.10"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "prop-types": "*"
+  }
+}
