@@ -6,6 +6,49 @@ Install the package:
 $ npm i react-native-animate-loading-button --save
 ```
 
+## Usage
+
+```javascript
+import React, { PureComponent } from 'react';
+import { View } from 'react-native';
+import AnimateLoadingButton from 'react-native-animate-loading-button';
+
+export default class Login extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = { isLoading: false };
+  }
+
+  _onPressHandler() {
+    this.setState({ isLoading: true });
+
+    // mock
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 2000);
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1, backgroundColor: 'rgb(255,255,255)', justifyContent: 'center' }}>
+        <AnimateLoadingButton
+          width={300}
+          height={50}
+          title="BUTTON"
+          titleFontSize={16}
+          titleColor="rgb(255,255,255)"
+          backgroundColor="rgb(29,18,121)"
+          borderRadius={4}
+          showLoading={this.state.isLoading}
+          onPress={this._onPressHandler.bind(this)}
+        />
+      </View>
+    );
+  }
+}
+```
+
 ## Properties
 
 | NAME                   | DESCRIPTION              |     TYPE | REQUIRED |
