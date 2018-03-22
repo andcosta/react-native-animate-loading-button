@@ -1,3 +1,7 @@
+## 0.0.6 (Mar 22, 2018)
+
+* Update readme - Image
+
 ## 0.0.5 (Mar 21, 2018)
 
 * Update readme - Usage exemplo

@@ -6,6 +6,10 @@ Install the package:
 $ npm i react-native-animate-loading-button --save
 ```
 
+## Example
+
+![Example](https://raw.githubusercontent.com/andcosta/react-native-animate-loading-button-example/master/android-ios.gif)
+
 ## Usage
 
 ```javascript
@@ -13,7 +17,7 @@ import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 import AnimateLoadingButton from 'react-native-animate-loading-button';
 
-export default class Login extends PureComponent {
+export default class LoadingButton extends PureComponent {
   constructor(props) {
     super(props);
 
