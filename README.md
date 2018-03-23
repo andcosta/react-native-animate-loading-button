@@ -67,8 +67,8 @@ export default class LoadingButton extends PureComponent {
 | borderWidth            | Button border width      |   Number | No       |
 | borderRadius           | Button border radius     |   Number | No       |
 | activityIndicatorColor | Activity indicator color |   String | No       |
-| showLoading            | Show loading             |  Boolean | YES      |
-| onPress                | Button onPress callback  | Function | YES      |
+| showLoading            | Show loading             |  Boolean | Yes      |
+| onPress                | Button onPress callback  | Function | Yes      |
 
 ## Author
 
