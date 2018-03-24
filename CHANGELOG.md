@@ -1,3 +1,7 @@
+## 0.1.0 (Mar 26, 2018)
+
+* Stable
+
 ## 0.0.7 (Mar 23, 2018)
 
 * Update readme - Properties
