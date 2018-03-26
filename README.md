@@ -1,14 +1,24 @@
 ## Install
 
-Install the package:
+Install the package NPM:
 
 ```bash
 $ npm i react-native-animate-loading-button --save
 ```
 
+or install the package YARN:
+
+```bash
+yarn add react-native-animate-loading-button
+```
+
 ## Example
 
 ![Example](https://raw.githubusercontent.com/andcosta/react-native-animate-loading-button-example/master/android-ios.gif)
+
+## Expo
+
+[https://snack.expo.io/@andcosta/react-native-animate-loading-button](https://snack.expo.io/@andcosta/react-native-animate-loading-button)
 
 ## Usage
 
