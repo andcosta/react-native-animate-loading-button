@@ -1,3 +1,7 @@
+## 0.1.1 (Mar 27, 2018)
+
+* Try it with expo
+
 ## 0.1.0 (Mar 26, 2018)
 
 * Stable

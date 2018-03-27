@@ -16,9 +16,9 @@ yarn add react-native-animate-loading-button
 
 ![Example](https://raw.githubusercontent.com/andcosta/react-native-animate-loading-button-example/master/android-ios.gif)
 
-## Expo
+## Demo
 
-[https://snack.expo.io/@andcosta/react-native-animate-loading-button](https://snack.expo.io/@andcosta/react-native-animate-loading-button)
+[Try it with expo](https://snack.expo.io/@andcosta/react-native-animate-loading-button)
 
 ## Usage
 
