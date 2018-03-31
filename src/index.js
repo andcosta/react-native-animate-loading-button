@@ -45,26 +45,24 @@ export default class Component extends React.PureComponent {
   }
 
   _loadingAnimation(widthStart, widthEnd, borderRadiusStart, borderRadiusEnd, opacityStart, opacityEnd) {
-    if (this.loadingValue.width._value !== widthEnd) {
-      this.loadingValue.width.setValue(widthStart);
-      this.loadingValue.opacity.setValue(opacityStart);
-      this.loadingValue.borderRadius.setValue(borderRadiusStart);
+    this.loadingValue.width.setValue(widthStart);
+    this.loadingValue.opacity.setValue(opacityStart);
+    this.loadingValue.borderRadius.setValue(borderRadiusStart);
 
-      Animated.timing(this.loadingValue.width, {
-        toValue: widthEnd,
-        duration: 400
-      }).start();
+    Animated.timing(this.loadingValue.width, {
+      toValue: widthEnd,
+      duration: 400
+    }).start();
 
-      Animated.timing(this.loadingValue.borderRadius, {
-        toValue: borderRadiusEnd,
-        duration: 400
-      }).start();
+    Animated.timing(this.loadingValue.borderRadius, {
+      toValue: borderRadiusEnd,
+      duration: 400
+    }).start();
 
-      Animated.timing(this.loadingValue.opacity, {
-        toValue: opacityEnd,
-        duration: 300
-      }).start();
-    }
+    Animated.timing(this.loadingValue.opacity, {
+      toValue: opacityEnd,
+      duration: 300
+    }).start();
   }
 
   render() {

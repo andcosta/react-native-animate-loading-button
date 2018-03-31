@@ -1,7 +1,3 @@
-## 0.1.2 (Mar 31, 2018)
-
-* Bug fix - multiplus buttons
-
 ## 0.1.1 (Mar 27, 2018)
 
 * Try it with expo
