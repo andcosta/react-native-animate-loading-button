@@ -14,7 +14,9 @@ yarn add react-native-animate-loading-button
 
 ## Example
 
-![Example](https://raw.githubusercontent.com/andcosta/react-native-animate-loading-button-example/master/android-ios.gif)
+<div style="display: flex; flex-direction: row; margin-bottom: 50px">
+  <img src="https://raw.githubusercontent.com/andcosta/react-native-animate-loading-button-example/master/android-ios.gif" width="540" />
+</div>
 
 ## Demo
 
