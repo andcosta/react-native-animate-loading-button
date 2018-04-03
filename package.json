@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/andcosta/react-native-animate-loading-button.git"
   },
+  "files": ["src"],
   "keywords": [
     "react",
     "native",
