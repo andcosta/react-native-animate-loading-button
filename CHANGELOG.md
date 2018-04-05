@@ -1,3 +1,7 @@
+## 1.0.1 (Apr 03, 2018)
+
+* Update readme - Usage exemplo and expo
+
 ## 1.0.0 (Apr 03, 2018)
 
 * Loading component with reference

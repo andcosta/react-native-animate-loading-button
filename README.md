@@ -20,7 +20,7 @@ yarn add react-native-animate-loading-button
 
 ## Demo
 
-[Try it with expo](https://snack.expo.io/@andcosta/react-native-animate-loading-button)
+[Try it with expo](https://snack.expo.io/@andcosta/react-native-animate-loading-button-v.1.0.0)
 
 ## Usage
 
@@ -30,18 +30,12 @@ import { View } from 'react-native';
 import AnimateLoadingButton from 'react-native-animate-loading-button';
 
 export default class LoadingButton extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = { isLoading: false };
-  }
-
   _onPressHandler() {
-    this.setState({ isLoading: true });
+    this.loadingButton.showLoading(true);
 
     // mock
     setTimeout(() => {
-      this.setState({ isLoading: false });
+      this.loadingButton.showLoading(false);
     }, 2000);
   }
 
@@ -49,6 +43,7 @@ export default class LoadingButton extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: 'rgb(255,255,255)', justifyContent: 'center' }}>
         <AnimateLoadingButton
+          ref={c => (this.loadingButton = c)}
           width={300}
           height={50}
           title="BUTTON"
@@ -56,7 +51,6 @@ export default class LoadingButton extends PureComponent {
           titleColor="rgb(255,255,255)"
           backgroundColor="rgb(29,18,121)"
           borderRadius={4}
-          showLoading={this.state.isLoading}
           onPress={this._onPressHandler.bind(this)}
         />
       </View>
