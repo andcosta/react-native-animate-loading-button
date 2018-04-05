@@ -1,3 +1,7 @@
+## 1.0.2 (Apr 03, 2018)
+
+* Update readme
+
 ## 1.0.1 (Apr 03, 2018)
 
 * Update readme - Usage exemplo and expo
