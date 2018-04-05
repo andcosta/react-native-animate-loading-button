@@ -1,3 +1,7 @@
+## 1.0.0 (Apr 03, 2018)
+
+* Loading component with reference
+
 ## 0.1.2 (Mar 31, 2018)
 
 * Bug fix - multiplus buttons

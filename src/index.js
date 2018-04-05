@@ -14,7 +14,6 @@ export default class Component extends React.PureComponent {
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
-    showLoading: PropTypes.bool.isRequired,
     onPress: PropTypes.func.isRequired
   };
 
@@ -29,6 +28,10 @@ export default class Component extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this.state = {
+      showLoading: false
+    };
+
     this.loadingValue = {
       width: new Animated.Value(props.width),
       borderRadius: new Animated.Value(props.borderRadius),
@@ -36,12 +39,14 @@ export default class Component extends React.PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.showLoading) {
-      this._loadingAnimation(this.props.width, nextProps.height, this.props.borderRadius, nextProps.height / 2, 1, 0);
+  showLoading(showLoading) {
+    if (showLoading) {
+      this._loadingAnimation(this.props.width, this.props.height, this.props.borderRadius, this.props.height / 2, 1, 0);
     } else {
-      this._loadingAnimation(nextProps.height, this.props.width, nextProps.height / 2, this.props.borderRadius, 0, 1);
+      this._loadingAnimation(this.props.height, this.props.width, this.props.height / 2, this.props.borderRadius, 0, 1);
     }
+
+    this.setState({ showLoading: showLoading });
   }
 
   _loadingAnimation(widthStart, widthEnd, borderRadiusStart, borderRadiusEnd, opacityStart, opacityEnd) {
@@ -70,7 +75,7 @@ export default class Component extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={!this.props.showLoading ? this.props.onPress : null}>
+        <TouchableWithoutFeedback onPress={!this.state.showLoading ? this.props.onPress : null}>
           <Animated.View
             style={[
               styles.containerButton,
@@ -83,7 +88,7 @@ export default class Component extends React.PureComponent {
               }
             ]}
           >
-            {this.props.showLoading ? this._renderIndicator() : this._renderTitle()}
+            {this.state.showLoading ? this._renderIndicator() : this._renderTitle()}
           </Animated.View>
         </TouchableWithoutFeedback>
       </View>
