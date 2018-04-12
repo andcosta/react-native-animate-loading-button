@@ -1,3 +1,7 @@
+## 1.0.3 (Apr 12, 2018)
+
+* Bug fix - closing animation speed
+
 ## 1.0.2 (Apr 03, 2018)
 
 * Update readme

@@ -42,11 +42,13 @@ export default class Component extends React.PureComponent {
   showLoading(showLoading) {
     if (showLoading) {
       this._loadingAnimation(this.props.width, this.props.height, this.props.borderRadius, this.props.height / 2, 1, 0);
+      this.setState({ showLoading: showLoading });
     } else {
-      this._loadingAnimation(this.props.height, this.props.width, this.props.height / 2, this.props.borderRadius, 0, 1);
+      setTimeout(() => {
+        this._loadingAnimation(this.props.height, this.props.width, this.props.height / 2, this.props.borderRadius, 0, 1);
+        this.setState({ showLoading: showLoading });
+      }, 1000);
     }
-
-    this.setState({ showLoading: showLoading });
   }
 
   _loadingAnimation(widthStart, widthEnd, borderRadiusStart, borderRadiusEnd, opacityStart, opacityEnd) {
