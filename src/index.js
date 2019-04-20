@@ -14,7 +14,8 @@ export default class Component extends React.PureComponent {
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    customStyles: PropTypes.object
   };
 
   static defaultProps = {
@@ -22,7 +23,8 @@ export default class Component extends React.PureComponent {
     titleColor: 'white',
     backgroundColor: 'gray',
     activityIndicatorColor: 'white',
-    borderRadius: 0
+    borderRadius: 0,
+    customStyles: {},
   };
 
   constructor(props) {
@@ -107,7 +109,8 @@ export default class Component extends React.PureComponent {
             color: this.props.titleColor,
             fontFamily: this.props.titleFontFamily,
             fontSize: this.props.titleFontSize
-          }
+          },
+          {...this.props.customStyles}
         ]}
       >
         {this.props.title}
