@@ -10,12 +10,12 @@ export default class Component extends React.PureComponent {
     titleColor: PropTypes.string,
     titleFontFamily: PropTypes.string,
     titleFontSize: PropTypes.number,
+    titleWeight: PropTypes.string,
     backgroundColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
-    onPress: PropTypes.func.isRequired,
-    customStyles: PropTypes.object
+    onPress: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -23,8 +23,7 @@ export default class Component extends React.PureComponent {
     titleColor: 'white',
     backgroundColor: 'gray',
     activityIndicatorColor: 'white',
-    borderRadius: 0,
-    customStyles: {},
+    borderRadius: 0
   };
 
   constructor(props) {
@@ -108,9 +107,9 @@ export default class Component extends React.PureComponent {
             opacity: this.loadingValue.opacity,
             color: this.props.titleColor,
             fontFamily: this.props.titleFontFamily,
-            fontSize: this.props.titleFontSize
-          },
-          {...this.props.customStyles}
+            fontSize: this.props.titleFontSize,
+            fontWeight: this.props.titleWeight
+          }
         ]}
       >
         {this.props.title}
