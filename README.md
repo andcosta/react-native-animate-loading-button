@@ -83,7 +83,7 @@ export default class LoadingButton extends PureComponent {
 [Anderson Costa](http://linkedin.com/in/andcosta)
 
 ## Contributors
-[Leonardo Nascimento](https://github.com/leonascimento)
+[Leonardo Nascimento](https://github.com/leonascimento),
 [Jimin Son](https://github.com/0xBono)
 
 ## License
