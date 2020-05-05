@@ -48,6 +48,7 @@ export default class LoadingButton extends PureComponent {
           height={50}
           title="BUTTON"
           titleFontSize={16}
+          titleWeight={'100'}
           titleColor="rgb(255,255,255)"
           backgroundColor="rgb(29,18,121)"
           borderRadius={4}
@@ -69,6 +70,7 @@ export default class LoadingButton extends PureComponent {
 | titleColor             | Button title color       |   String | No       |
 | titleFontFamily        | Button title font family |   String | No       |
 | titleFontSize          | Button title font size   |   Number | No       |
+| titleWeight            | Button title font weight |   String | No       |
 | backgroundColor        | Button background color  |   String | No       |
 | borderWidth            | Button border width      |   Number | No       |
 | borderRadius           | Button border radius     |   Number | No       |
@@ -79,6 +81,10 @@ export default class LoadingButton extends PureComponent {
 ## Author
 
 [Anderson Costa](http://linkedin.com/in/andcosta)
+
+## Contributors
+[Leonardo Nascimento](https://github.com/leonascimento)
+[Jimin Son](https://github.com/0xBono)
 
 ## License
 

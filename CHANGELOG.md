@@ -1,3 +1,7 @@
+## 1.0.4 (Feb 02, 2020)
+
+* Update function - added fontWeight
+
 ## 1.0.3 (Apr 12, 2018)
 
 * Bug fix - closing animation speed
