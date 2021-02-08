@@ -15,7 +15,8 @@ export default class Component extends React.PureComponent {
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
   };
 
   static defaultProps = {
@@ -23,7 +24,8 @@ export default class Component extends React.PureComponent {
     titleColor: 'white',
     backgroundColor: 'gray',
     activityIndicatorColor: 'white',
-    borderRadius: 0
+    borderRadius: 0,
+    disabled: false
   };
 
   constructor(props) {
@@ -81,14 +83,14 @@ export default class Component extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={!this.state.showLoading ? this.props.onPress : null}>
+        <TouchableWithoutFeedback onPress={!this.state.showLoading && !this.props.disabled ? this.props.onPress : null}>
           <Animated.View
             style={[
               styles.containerButton,
               {
                 width: this.loadingValue.width,
                 height: this.props.height,
-                backgroundColor: this.props.backgroundColor,
+                backgroundColor: this.props.disabled ? '#bebebe' : this.props.backgroundColor,
                 borderWidth: this.props.borderWidth,
                 borderRadius: this.loadingValue.borderRadius
               }
