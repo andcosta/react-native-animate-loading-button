@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
   buttonText: {
     backgroundColor: 'transparent',
     textAlign: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignSelf: 'center'
   }
 });
