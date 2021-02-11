@@ -8,7 +8,9 @@
     "type": "git",
     "url": "https://github.com/andcosta/react-native-animate-loading-button.git"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "keywords": [
     "react",
     "native",
@@ -36,5 +38,8 @@
     "react": "*",
     "react-native": "*",
     "prop-types": "*"
+  },
+  "dependencies": {
+    "react-native-elements": "^3.2.0"
   }
 }

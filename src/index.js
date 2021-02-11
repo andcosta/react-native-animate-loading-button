@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableWithoutFeedback, Animated, ActivityIndicator, View, Text } from 'react-native';
+import { Icon } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 export default class Component extends React.PureComponent {
@@ -16,7 +17,12 @@ export default class Component extends React.PureComponent {
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
     onPress: PropTypes.func.isRequired,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    iconName: PropTypes.string,
+    iconType: PropTypes.string,
+    iconSize: PropTypes.number,
+    iconColor: PropTypes.string,
+    showIcon: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -25,7 +31,12 @@ export default class Component extends React.PureComponent {
     backgroundColor: 'gray',
     activityIndicatorColor: 'white',
     borderRadius: 0,
-    disabled: false
+    disabled: false,
+    iconName: '',
+    iconType: '',
+    iconSize: 0,
+    iconColor: '#FFFFFF',
+    showIcon: false
   };
 
   constructor(props) {
@@ -105,20 +116,42 @@ export default class Component extends React.PureComponent {
 
   _renderTitle() {
     return (
-      <Animated.Text
-        style={[
-          styles.buttonText,
-          {
-            opacity: this.loadingValue.opacity,
-            color: this.props.titleColor,
-            fontFamily: this.props.titleFontFamily,
-            fontSize: this.props.titleFontSize,
-            fontWeight: this.props.titleWeight
-          }
-        ]}
-      >
-        {this.props.title}
-      </Animated.Text>
+      <Animated.View style={{
+        flexDirection: 'row'
+      }}>
+        {this.props.showIcon ? (
+          <Animated.View style={{
+            position: 'absolute',
+            alignContent: 'center',
+            alignItems: 'center',
+            left: 10
+          }}>
+            <Icon 
+              name={this.props.iconName}
+              type={this.props.iconType}
+              size={this.props.iconSize}
+              color={this.props.iconColor}
+            />
+          </Animated.View>
+        ) : (
+          <></>
+        )}
+          <Animated.Text
+            style={[
+              styles.buttonText,
+              {
+                opacity: this.loadingValue.opacity,
+                color: this.props.titleColor,
+                fontFamily: this.props.titleFontFamily,
+                fontSize: this.props.titleFontSize,
+                fontWeight: this.props.titleWeight
+              }
+            ]}
+          >
+            {this.props.title}
+          </Animated.Text>
+        
+      </Animated.View>
     );
   }
 
@@ -136,6 +169,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     backgroundColor: 'transparent',
-    textAlign: 'center'
+    textAlign: 'center',
+    justifyContent: 'center'
   }
 });
