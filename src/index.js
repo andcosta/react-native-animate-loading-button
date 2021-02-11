@@ -118,7 +118,8 @@ export default class Component extends React.PureComponent {
     return (
       <Animated.View style={{
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
       }}>
         {this.props.showIcon ? (
           <Animated.View style={{
