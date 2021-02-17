@@ -10,7 +10,7 @@ export default class Component extends React.PureComponent {
     titleColor: PropTypes.string,
     titleFontFamily: PropTypes.string,
     titleFontSize: PropTypes.number,
-    titleFontWeight: PropTypes.number,
+    titleFontWeight: PropTypes.string,
     backgroundColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
