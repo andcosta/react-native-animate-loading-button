@@ -10,20 +10,23 @@ export default class Component extends React.PureComponent {
     titleColor: PropTypes.string,
     titleFontFamily: PropTypes.string,
     titleFontSize: PropTypes.number,
-    titleWeight: PropTypes.string,
+    titleFontWeight: PropTypes.string,
     backgroundColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
+    animationDurationWidth: PropTypes.number,
     onPress: PropTypes.func.isRequired
   };
 
   static defaultProps = {
     title: 'Button',
     titleColor: 'white',
+    titleFontWeight:'normal',
     backgroundColor: 'gray',
     activityIndicatorColor: 'white',
-    borderRadius: 0
+    borderRadius: 0,
+    animationDurationWidth: 400,
   };
 
   constructor(props) {
@@ -60,7 +63,7 @@ export default class Component extends React.PureComponent {
 
       Animated.timing(this.loadingValue.width, {
         toValue: widthEnd,
-        duration: 400
+        duration: this.props.animationDurationWidth
       }).start();
 
       Animated.timing(this.loadingValue.borderRadius, {
@@ -108,7 +111,7 @@ export default class Component extends React.PureComponent {
             color: this.props.titleColor,
             fontFamily: this.props.titleFontFamily,
             fontSize: this.props.titleFontSize,
-            fontWeight: this.props.titleWeight
+            fontWeight: this.props.titleFontWeight
           }
         ]}
       >
