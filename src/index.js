@@ -156,6 +156,21 @@ export default class Component extends React.PureComponent {
   }
 
   _renderTitle() {
+    if (this.props.children) {
+      return (
+        <Animated.View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+          }}
+        >
+          {this.props.children}
+        </Animated.View>
+      );
+    }
+
     return (
       <Animated.View
         style={{
