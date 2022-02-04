@@ -1,6 +1,14 @@
-import React from 'react';
-import { StyleSheet, TouchableWithoutFeedback, Animated, ActivityIndicator, View, Text } from 'react-native';
-import PropTypes from 'prop-types';
+import React from "react";
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Animated,
+  ActivityIndicator,
+  View,
+  Text,
+} from "react-native";
+import { Icon } from "react-native-elements";
+import PropTypes from "prop-types";
 
 export default class Component extends React.PureComponent {
   static propTypes = {
@@ -15,44 +23,77 @@ export default class Component extends React.PureComponent {
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
     activityIndicatorColor: PropTypes.string,
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    iconName: PropTypes.string,
+    iconType: PropTypes.string,
+    iconSize: PropTypes.number,
+    iconColor: PropTypes.string,
+    showIcon: PropTypes.bool,
   };
 
   static defaultProps = {
-    title: 'Button',
-    titleColor: 'white',
-    backgroundColor: 'gray',
-    activityIndicatorColor: 'white',
-    borderRadius: 0
+    title: "Button",
+    titleColor: "white",
+    backgroundColor: "gray",
+    activityIndicatorColor: "white",
+    borderRadius: 0,
+    disabled: false,
+    iconName: "",
+    iconType: "",
+    iconSize: 0,
+    iconColor: "#FFFFFF",
+    showIcon: false,
   };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      showLoading: false
+      showLoading: false,
     };
 
     this.loadingValue = {
       width: new Animated.Value(props.width),
       borderRadius: new Animated.Value(props.borderRadius),
-      opacity: new Animated.Value(1)
+      opacity: new Animated.Value(1),
     };
   }
 
   showLoading(showLoading) {
     if (showLoading) {
-      this._loadingAnimation(this.props.width, this.props.height, this.props.borderRadius, this.props.height / 2, 1, 0);
+      this._loadingAnimation(
+        this.props.width,
+        this.props.height,
+        this.props.borderRadius,
+        this.props.height / 2,
+        1,
+        0
+      );
       this.setState({ showLoading: showLoading });
     } else {
       setTimeout(() => {
-        this._loadingAnimation(this.props.height, this.props.width, this.props.height / 2, this.props.borderRadius, 0, 1);
+        this._loadingAnimation(
+          this.props.height,
+          this.props.width,
+          this.props.height / 2,
+          this.props.borderRadius,
+          0,
+          1
+        );
         this.setState({ showLoading: showLoading });
       }, 1000);
     }
   }
 
-  _loadingAnimation(widthStart, widthEnd, borderRadiusStart, borderRadiusEnd, opacityStart, opacityEnd) {
+  _loadingAnimation(
+    widthStart,
+    widthEnd,
+    borderRadiusStart,
+    borderRadiusEnd,
+    opacityStart,
+    opacityEnd
+  ) {
     if (this.loadingValue.width._value !== widthEnd) {
       this.loadingValue.width.setValue(widthStart);
       this.loadingValue.opacity.setValue(opacityStart);
@@ -81,20 +122,33 @@ export default class Component extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={!this.state.showLoading ? this.props.onPress : null}>
+        <TouchableWithoutFeedback
+          onPress={
+            !this.state.showLoading && !this.props.disabled
+              ? this.props.onPress
+              : null
+          }
+        >
           <Animated.View
             style={[
               styles.containerButton,
               {
                 width: this.loadingValue.width,
                 height: this.props.height,
-                backgroundColor: this.props.backgroundColor,
+                backgroundColor: this.props.disabled
+                  ? "#bebebe"
+                  : this.props.backgroundColor === "transparent" &&
+                    this.state.showLoading
+                  ? this.props.titleColor
+                  : this.props.backgroundColor,
                 borderWidth: this.props.borderWidth,
-                borderRadius: this.loadingValue.borderRadius
-              }
+                borderRadius: this.loadingValue.borderRadius,
+              },
             ]}
           >
-            {this.state.showLoading ? this._renderIndicator() : this._renderTitle()}
+            {this.state.showLoading
+              ? this._renderIndicator()
+              : this._renderTitle()}
           </Animated.View>
         </TouchableWithoutFeedback>
       </View>
@@ -102,21 +156,64 @@ export default class Component extends React.PureComponent {
   }
 
   _renderTitle() {
+    if (this.props.children) {
+      return (
+        <Animated.View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+          }}
+        >
+          {this.props.children}
+        </Animated.View>
+      );
+    }
+
     return (
-      <Animated.Text
-        style={[
-          styles.buttonText,
-          {
-            opacity: this.loadingValue.opacity,
-            color: this.props.titleColor,
-            fontFamily: this.props.titleFontFamily,
-            fontSize: this.props.titleFontSize,
-            fontWeight: this.props.titleWeight
-          }
-        ]}
+      <Animated.View
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "center",
+        }}
       >
-        {this.props.title}
-      </Animated.Text>
+        {this.props.showIcon ? (
+          <Animated.View
+            style={{
+              position: "absolute",
+              alignContent: "center",
+              alignItems: "center",
+              left: 10,
+            }}
+          >
+            <Icon
+              name={this.props.iconName}
+              type={this.props.iconType}
+              size={this.props.iconSize}
+              color={this.props.iconColor}
+            />
+          </Animated.View>
+        ) : (
+          <></>
+        )}
+        <Animated.Text
+          style={[
+            styles.buttonText,
+            {
+              opacity: this.loadingValue.opacity,
+              color: this.props.titleColor,
+              fontFamily: this.props.titleFontFamily,
+              fontSize: this.props.titleFontSize,
+              fontWeight: this.props.titleWeight,
+            },
+          ]}
+        >
+          {this.props.title}
+        </Animated.Text>
+      </Animated.View>
     );
   }
 
@@ -127,13 +224,15 @@ export default class Component extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center'
+    alignItems: "center",
   },
   containerButton: {
-    justifyContent: 'center'
+    justifyContent: "center",
   },
   buttonText: {
-    backgroundColor: 'transparent',
-    textAlign: 'center'
-  }
+    backgroundColor: "transparent",
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
 });
