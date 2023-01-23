@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 
 export default class Component extends React.PureComponent {
   static propTypes = {
-    width: PropTypes.number.isRequired,
+    width: PropTypes.oneOfType([
+     PropTypes.string,
+     PropTypes.number
+    ]),
     height: PropTypes.number.isRequired,
     title: PropTypes.string,
     titleColor: PropTypes.string,
